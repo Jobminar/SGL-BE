@@ -5,38 +5,11 @@ import connectToMongoDB from './conn.js';
 import router from './routes.js';
 import { json } from 'express';
 import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
+
 import bcrypt from 'bcryptjs';
 import Login from './Model.js';
 
 dotenv.config();
-
-const MONGODB_URI = process.env.MONGODB_URI;
-const EMAIL_USERNAME = process.env.EMAIL_USERNAME;
-const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
-const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
-
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    type: 'OAuth2',
-    user: EMAIL_USERNAME,
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    refreshToken: REFRESH_TOKEN,
-    accessToken: ACCESS_TOKEN,
-    expires: 3600,
-  },
-});
-//chandrasekhar
 const app = express();
 const PORT = process.env.PORT || 4000;
 
