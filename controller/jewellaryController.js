@@ -42,7 +42,6 @@ const jewellaryController = {
   ],
   
 
-  // jewellaryController.js
 
 deleteJewellary: async (req, res) => {
   try {
