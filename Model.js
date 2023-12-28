@@ -1,4 +1,4 @@
-
+// Model.js
 import { Schema, model } from "mongoose";
 
 const loginSchema = new Schema({

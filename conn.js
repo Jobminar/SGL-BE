@@ -14,7 +14,8 @@ const connectToMongoDB = async () => {
     });
 
     mongoose.connection.once("open", () => {
-      console.log("MongoDB connected successfully");
+      // console.log("MongoDB connected successfully");
+      console.log(`MongoDB connected at ${process.env.MONGODB_URI}`);
     });
 
     mongoose.connection.on("error", (err) => {
@@ -25,7 +26,7 @@ const connectToMongoDB = async () => {
       console.log("MongoDB reconnected");
     });
 
-    console.log("MongoDB connected successfully");
+    // console.log("MongoDB connected successfully");
   } catch (error) {
     console.error("MongoDB connection error:", error);
     process.exit(1);

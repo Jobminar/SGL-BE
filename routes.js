@@ -10,13 +10,8 @@ import cartsController from './controller/cartsController.js';
 import beadsController from './controller/beadsController.js';
 import blogsController from './controller/blogsController.js';
 import zodiacController from './controller/zodiacController.js';
-import loginController from './controller/loginController.js';
 
 const router = express.Router();
-
-
-router.post("/signup",loginController.signup)
-router.post("/login", loginController.login);
 
 
 router.post("/inventorypost", inventoryController.createInventoryItem);
