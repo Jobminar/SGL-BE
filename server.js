@@ -5,7 +5,7 @@ import connectToMongoDB from './conn.js';
 import router from './routes.js';
 import { json } from 'express';
 import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
+
 import bcrypt from 'bcryptjs';
 import Login from './Model.js';
 
