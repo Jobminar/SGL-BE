@@ -10,7 +10,7 @@ import cartsController from './controller/cartsController.js';
 import beadsController from './controller/beadsController.js';
 import blogsController from './controller/blogsController.js';
 import zodiacController from './controller/zodiacController.js';
-
+import contactController from './controller/contactController.js';
 const router = express.Router();
 
 
@@ -60,6 +60,8 @@ router.post('/postzodiacstones', zodiacController.createZodiac);
 router.get("/getzodiacstones", zodiacController.getZodiac);
 router.delete("/deletezodiacstones/:id", zodiacController.deleteZodiac);
 
-
+router.post("/postcontact",contactController.createContact)
+router.get("/getallcontact",contactController.getAllContact)
+router.delete("/deleteconatct/:id",contactController.deleteContact)
 
 export default router;
