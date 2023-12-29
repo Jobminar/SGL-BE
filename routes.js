@@ -40,8 +40,8 @@ router.post("/postdiamonds", diamondsController.createDiamond);
 router.get("/getdiamonds", diamondsController.getAllDiamonds);
 router.delete("/deletediamonds/:id", diamondsController.deleteDiamond);
 
-router.post("/postjewelry ", jewellaryController.createJewellary);
-router.get("/getjewelry ", jewellaryController.getAllJewellary);
+router.post("/postjewelry", jewellaryController.createJewellary);
+router.get("/getjewelry", jewellaryController.getAllJewellary);
 router.delete("/deletejewelry/:id", jewellaryController.deleteJewellary);
 
 router.post("/postpearls", pearlsController.createPearls);
