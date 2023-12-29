@@ -7,8 +7,8 @@ const upload = multer({ storage: storage });
 const jewelryController = {
   getAlljewelry: async function (req, res) {
     try {
-      const jewelry = await jewelry.find();
-      res.status(200).json(jewelry);
+      const allJewelry = await jewelry.find();
+      res.status(200).json(allJewelry);
     } catch (error) {
       console.error('Error fetching jewelry:', error);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -44,15 +44,15 @@ const jewelryController = {
   deletejewelry: async function (req, res) {
     try {
       const { id } = req.params;
-      const jewelry = await jewelry.findById(id);
+      const jewelryItem = await jewelry.findById(id);
 
-      if (!jewelry) {
-        return res.status(404).json({ error: 'jewelry not found' });
+      if (!jewelryItem) {
+        return res.status(404).json({ error: 'Jewelry not found' });
       }
 
-      await jewelry.deleteOne({ _id: id });
+      await jewelryItem.deleteOne({ _id: id });
 
-      res.status(204).json({ message: 'jewelry deleted successfully' });
+      res.status(204).json({ message: 'Jewelry deleted successfully' });
     } catch (error) {
       console.error('Error deleting jewelry:', error);
       res.status(500).json({ error: 'Failed to delete jewelry', details: error.message });
