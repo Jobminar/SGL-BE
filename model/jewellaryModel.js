@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose"; 
+import { Schema, model } from 'mongoose';
 
 const jewellarySchema = Schema({
   image: { type: String, required: true },
@@ -12,6 +12,6 @@ const jewellarySchema = Schema({
   shape: { type: String, required: true },
 });
 
-const Jewellary = model("Jewellary", jewellarySchema);
+const Jewellary = model('Jewellary', jewellarySchema);
 
 export default Jewellary;
