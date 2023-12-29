@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose"; // Add this import statement for mongoose
+import { Schema, model } from "mongoose"; 
 
 const jewellarySchema = Schema({
   image: { type: String, required: true },
