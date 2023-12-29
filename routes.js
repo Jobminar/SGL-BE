@@ -3,7 +3,7 @@ import inventoryController from './controller/inventoryController.js';
 import ordersController from './controller/ordersController.js';
 import gemsController from './controller/gemsController.js';
 import diamondsController from './controller/diamondsController.js';
-import jewellaryController from './controller/jewellaryController.js';
+import jewelryController from './controller/jewelryController.js';
 import pearlsController from './controller/pearlsController.js';
 import coralsController from './controller/coralsController.js';
 import cartsController from './controller/cartsController.js';
@@ -40,9 +40,9 @@ router.post("/postdiamonds", diamondsController.createDiamond);
 router.get("/getdiamonds", diamondsController.getAllDiamonds);
 router.delete("/deletediamonds/:id", diamondsController.deleteDiamond);
 
-router.post("/postjewelry", jewellaryController.createJewellary);
-router.get("/getjewelry", jewellaryController.getAllJewellary);
-router.delete("/deletejewelry/:id", jewellaryController.deleteJewellary);
+router.post("/postjewelry", jewelryController.createjewelry);
+router.get("/getjewelry", jewelryController.getAlljewelry);
+router.delete("/deletejewelry/:id", jewelryController.deletejewelry);
 
 router.post("/postpearls", pearlsController.createPearls);
 router.get("/getpearls", pearlsController.getAllPearls);
