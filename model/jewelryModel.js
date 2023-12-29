@@ -12,6 +12,6 @@ const jewelrySchema = Schema({
   shape: { type: String, required: true },
 });
 
-const jewelry = model('jewelry', jewelrySchema);
+const Jewelry = model('Jewelry', jewelrySchema); // Fix the model name here
 
-export default jewelry;
+export default Jewelry;
