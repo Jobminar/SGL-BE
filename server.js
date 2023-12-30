@@ -7,7 +7,9 @@ import { json } from 'express';
 import { v4 as uuidv4 } from 'uuid'
 import bcrypt from 'bcryptjs';
 import Login from './Model.js';
-//
+
+
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -24,6 +26,7 @@ app.use(express.json({ limit: '10mb' }));
 connectToMongoDB();
 app.use(json());
 app.use('/', router);
+
 
 app.post('/signup', async (req, res) => {
   try {
@@ -59,31 +62,40 @@ app.post('/signup', async (req, res) => {
 
 dotenv.config();
 
+
 app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
- 
     const user = await Login.findOne({ email });
 
- 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-  
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Invalid password' });
     }
 
-    res.status(200).json({ message: 'Login successful' });
+    const userDataToSend = {
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      whatsapp: user.whatsapp,
+    };
+    console.log(userDataToSend,'userdata send,line 88')
+    res.status(200).json({
+      message: 'Login successful',
+      user: userDataToSend,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 app.get('/getAllUsers', async (req, res) => {
   try {
@@ -160,23 +172,6 @@ app.delete('/deleteUser/:userId', async (req, res) => {
     }
 
     res.status(200).json({ message: 'User deleted successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-app.get('/getUser/:userId', async (req, res) => {
-  try {
-    const { userId } = req.params;
-
-    const user = await Login.findById(userId);
-
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    res.status(200).json(user);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

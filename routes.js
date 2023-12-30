@@ -11,7 +11,10 @@ import beadsController from './controller/beadsController.js';
 import blogsController from './controller/blogsController.js';
 import zodiacController from './controller/zodiacController.js';
 import contactController from './controller/contactController.js';
+
+
 const router = express.Router();
+
 
 
 router.post("/inventorypost", inventoryController.createInventoryItem);
